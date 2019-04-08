@@ -28,9 +28,14 @@ public class kasir extends javax.swing.JFrame {
     
     public kasir() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        print.setLocationRelativeTo(null);
     }
     int i = 0;
     int total = 0;
+    int babel = 0;
+    int g_ppn,g_bkp,g_dpp,g_disc;
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,8 +45,44 @@ public class kasir extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        print = new javax.swing.JDialog();
+        txt_receipt = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        txt_waktu = new javax.swing.JLabel();
+        txt_kasir = new javax.swing.JLabel();
+        txt_kasir2 = new javax.swing.JLabel();
+        txt_receipt1 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jEditorPane1 = new javax.swing.JEditorPane();
+        tampil = new javax.swing.JTextArea();
+        jSeparator3 = new javax.swing.JSeparator();
+        jLabel1 = new javax.swing.JLabel();
+        txt_sub = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        txt_net = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        txt_cash = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        txt_change = new javax.swing.JLabel();
+        jSeparator4 = new javax.swing.JSeparator();
+        jLabel25 = new javax.swing.JLabel();
+        txt_dpp = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        txt_bkp = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        txt_disc = new javax.swing.JLabel();
+        txt_ppn = new javax.swing.JLabel();
+        jSeparator5 = new javax.swing.JSeparator();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
         pilih_buku = new javax.swing.JComboBox<>();
         jumlah_buku1 = new javax.swing.JSpinner();
         jLabel6 = new javax.swing.JLabel();
@@ -85,7 +126,116 @@ public class kasir extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         ppen = new javax.swing.JTextField();
 
-        jScrollPane1.setViewportView(jEditorPane1);
+        print.setTitle("Print");
+        print.setAlwaysOnTop(true);
+        print.setMaximumSize(new java.awt.Dimension(300, 600));
+        print.setMinimumSize(new java.awt.Dimension(300, 600));
+        print.setPreferredSize(new java.awt.Dimension(300, 600));
+        print.setSize(new java.awt.Dimension(300, 650));
+        print.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txt_receipt.setText("Receipt");
+        print.getContentPane().add(txt_receipt, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, -1, -1));
+
+        jLabel2.setText("JL. GAJAH MADA 109 JAKARTA");
+        print.getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
+
+        jLabel3.setText("NPWP / PKP : 01.305.681.7-092.000");
+        print.getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
+
+        jLabel4.setText("TGL. PENGUKUHAN : 02-04-2012");
+        print.getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
+        print.getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 570, 420, -1));
+
+        jLabel5.setText("PT GRAMEDIA ASRI MEDIA");
+        print.getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
+
+        jLabel10.setText("GRAMEDIA BANDUNG MERDEKA");
+        print.getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
+
+        txt_waktu.setText("Waktu");
+        print.getContentPane().add(txt_waktu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
+
+        txt_kasir.setText("Kasir");
+        print.getContentPane().add(txt_kasir, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, -1, -1));
+
+        txt_kasir2.setText("Receipt. No :");
+        print.getContentPane().add(txt_kasir2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
+
+        txt_receipt1.setText("** SALE **");
+        print.getContentPane().add(txt_receipt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, -1, -1));
+        print.getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 104, 420, -1));
+
+        tampil.setEditable(false);
+        tampil.setColumns(20);
+        tampil.setRows(5);
+        tampil.setMaximumSize(new java.awt.Dimension(260, 400));
+        jScrollPane1.setViewportView(tampil);
+
+        print.getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 380, 160));
+        print.getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 200, 420, -1));
+
+        jLabel1.setText("Sub Total");
+        print.getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, -1, -1));
+
+        txt_sub.setText("sub");
+        print.getContentPane().add(txt_sub, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 390, -1, -1));
+
+        jLabel21.setText("Net Total");
+        print.getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, -1, -1));
+
+        txt_net.setText("net");
+        print.getContentPane().add(txt_net, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, -1, -1));
+
+        jLabel23.setText("CASH");
+        print.getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, -1, -1));
+
+        txt_cash.setText("cash");
+        print.getContentPane().add(txt_cash, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 450, -1, -1));
+
+        jLabel24.setText("Change back (CASH)");
+        print.getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, -1, -1));
+
+        txt_change.setText("change");
+        print.getContentPane().add(txt_change, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 480, -1, -1));
+        print.getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 380, 420, -1));
+
+        jLabel25.setText("BEBAS PPN :   0");
+        print.getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, -1, -1));
+
+        txt_dpp.setText("dpp");
+        print.getContentPane().add(txt_dpp, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 530, -1, -1));
+
+        jLabel27.setText("DPP :");
+        print.getContentPane().add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, -1, -1));
+
+        jLabel28.setText("PPN :");
+        print.getContentPane().add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 530, -1, -1));
+
+        txt_bkp.setText("bkp");
+        print.getContentPane().add(txt_bkp, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 510, -1, -1));
+
+        jLabel29.setText("BKP :");
+        print.getContentPane().add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, -1, -1));
+
+        jLabel30.setText("Disc :");
+        print.getContentPane().add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 510, -1, -1));
+
+        txt_disc.setText("disc");
+        print.getContentPane().add(txt_disc, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 510, -1, -1));
+
+        txt_ppn.setText("ppn");
+        print.getContentPane().add(txt_ppn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 530, -1, -1));
+        print.getContentPane().add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 500, 420, -1));
+
+        jLabel26.setText("TERIMA KASIH");
+        print.getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 620, -1, -1));
+
+        jLabel31.setText("Beli Buku, Click");
+        print.getContentPane().add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 580, -1, -1));
+
+        jLabel32.setText("www.gramedia.com");
+        print.getContentPane().add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 600, -1, -1));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Aplikasi Penjualan PT. GRAMEDIA ASRI MEDIA");
@@ -564,10 +714,13 @@ public class kasir extends javax.swing.JFrame {
     
     private void tambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahActionPerformed
         // TODO add your handling code here:
+        
+        
         add_nama((String)pilih_buku.getSelectedItem());
         add_satuan((String)satuan_1.getText());
-        add_banyak(jumlah_buku1.getValue().toString());
-        add_subtot(total_1.getText().toString());
+        add_banyak(String.valueOf(jumlah_buku1.getValue()));
+        add_subtot((String)total_1.getText());
+        
         
         total = total + Integer.valueOf(total_1.getText());
         sub_totalitas.setText(String.valueOf(total));
@@ -586,11 +739,18 @@ public class kasir extends javax.swing.JFrame {
         disk.setText(String.valueOf(diskon));
         ppen.setText(String.valueOf(ppn));
         
+        g_ppn = ppn;
+        g_disc = diskon;
+        g_dpp = dpp;
+        g_bkp = bkp;
+        
         net_total.setText(String.valueOf(bkp));
         
         jumlah_buku1.setValue(1);
         
         pilih_buku.setSelectedItem("- none -");
+       
+        babel = babel + 1;
     }//GEN-LAST:event_tambahActionPerformed
 
     private void hapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusActionPerformed
@@ -610,8 +770,35 @@ public class kasir extends javax.swing.JFrame {
         
     }//GEN-LAST:event_hapusActionPerformed
 
+    
     private void cetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cetakActionPerformed
         // TODO add your handling code here:
+        print.setVisible(true);
+        
+        txt_waktu.setText(tanggal.getText());
+        txt_kasir.setText(sub_totalitas1.getText());
+        txt_receipt.setText(receipt.getText());
+        txt_sub.setText(total_1.getText());
+        txt_net.setText(net_total.getText());
+        txt_cash.setText(cash.getText());
+        txt_change.setText(kembalian.getText());
+        txt_ppn.setText(String.valueOf(g_ppn));
+        txt_bkp.setText(String.valueOf(g_bkp));
+        txt_disc.setText(String.valueOf(g_disc));
+        txt_dpp.setText(String.valueOf(g_dpp));
+        
+        int hitung=0;
+        while (hitung < babel) {
+              String lnama = String.valueOf(d_nama.getElementAt(hitung));
+              String lsatuan = String.valueOf(d_satuan.getElementAt(hitung));
+              String lbanyak = String.valueOf(d_banyak.getElementAt(hitung));
+              String lsubtot = String.valueOf(d_subtot.getElementAt(hitung));
+              tampil.setText(tampil.getText()+lnama+"\n"+lbanyak+"\t x"+lsatuan+"\t = "+lsubtot+"\n");
+            
+//            tampil.setTexte(a_nama[hitung]+"\t"+a_satuan[hitung]+"\t"+a_banyak[hitung]+"\t"+a_subtot[hitung]+"\n");
+              hitung = hitung + 1;
+        }
+            
     }//GEN-LAST:event_cetakActionPerformed
 
     private void sub_totalitas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sub_totalitas1ActionPerformed
@@ -673,7 +860,8 @@ public class kasir extends javax.swing.JFrame {
     private javax.swing.JButton hapus;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JEditorPane jEditorPane1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -683,8 +871,23 @@ public class kasir extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -694,6 +897,11 @@ public class kasir extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSpinner jumlah_buku1;
     private javax.swing.JTextField kembalian;
     private javax.swing.JTextField kode_buku1;
@@ -701,14 +909,29 @@ public class kasir extends javax.swing.JFrame {
     private javax.swing.JTextField net_total;
     private javax.swing.JComboBox<String> pilih_buku;
     private javax.swing.JTextField ppen;
+    private javax.swing.JDialog print;
     private javax.swing.JTextField receipt;
     private javax.swing.JTextField satuan_1;
     private javax.swing.JList<String> sub_total;
     private javax.swing.JTextField sub_totalitas;
     private javax.swing.JTextField sub_totalitas1;
     private javax.swing.JButton tambah;
+    private javax.swing.JTextArea tampil;
     private javax.swing.JTextField tanggal;
     private javax.swing.JTextField total_1;
     private javax.swing.JList<String> total_list;
+    private javax.swing.JLabel txt_bkp;
+    private javax.swing.JLabel txt_cash;
+    private javax.swing.JLabel txt_change;
+    private javax.swing.JLabel txt_disc;
+    private javax.swing.JLabel txt_dpp;
+    private javax.swing.JLabel txt_kasir;
+    private javax.swing.JLabel txt_kasir2;
+    private javax.swing.JLabel txt_net;
+    private javax.swing.JLabel txt_ppn;
+    private javax.swing.JLabel txt_receipt;
+    private javax.swing.JLabel txt_receipt1;
+    private javax.swing.JLabel txt_sub;
+    private javax.swing.JLabel txt_waktu;
     // End of variables declaration//GEN-END:variables
 }
